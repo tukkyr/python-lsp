@@ -19,6 +19,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nvie/vim-flake8'
+Plug 'janko/vim-test'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 filetype plugin indent on
@@ -109,3 +111,6 @@ autocmd BufNewFile,BufRead *.md setlocal expandtab tabstop=2 shiftwidth=2
 let g:lsp_diagnostics_enabled = 0
 
 let g:flake8_ignore='E501'
+
+let g:test#python#runner = 'pytest'
+" let g:test#strategy = 'dispatch'

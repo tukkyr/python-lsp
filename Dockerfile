@@ -23,7 +23,7 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
 RUN curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
  && vim -c PlugInstall -c q -c q
 
-RUN pip --no-cache-dir install python-language-server flake8
+RUN pip --no-cache-dir install python-language-server pytest flake8 flake8-mypy mypy
 
 WORKDIR /app
 
