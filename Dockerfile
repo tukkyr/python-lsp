@@ -27,7 +27,5 @@ RUN pip --no-cache-dir install python-language-server flake8
 
 WORKDIR /app
 
-COPY requirements-dev.txt /app
-
 CMD ["/bin/bash"]
 
