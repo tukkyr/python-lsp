@@ -1,8 +1,9 @@
-FROM python:3.7.4-stretch
+FROM python:3.7.4-buster
 
 COPY .vimrc /root
+COPY .tmux.conf /root
 
-RUN apt-get update && apt-get install -y vim jq ssh-client && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y vim jq ssh-client tmux && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ${HOME}/.git-prompt.sh \
  # && echo 'test -r ~/.bashrc && . ~/.bashrc' >> ${HOME}/.bash_profile \
@@ -13,6 +14,7 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
  && HISTIGNORE='ls*:exit*:history*:cd\ -:cd:cd\ \.\.' \
  && echo 'stty stop undef' >> ${HOME}/.bashrc \
  && echo 'alias vi="vim"' >> ${HOME}/.bashrc \
+ && echo 'alias tmux="tmux -2"' >> ${HOME}/.bashrc \
  && echo . ${HOME}/.git-prompt.sh >> ${HOME}/.bashrc \
  && echo GIT_PS1_SHOWDIRTYSTATE=1 >> ${HOME}/.bashrc \
  && echo GIT_PS1_SHOWUPSTREAM=1 >> ${HOME}/.bashrc \

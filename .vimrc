@@ -32,10 +32,16 @@ set nowrap
 
 if (has("termguicolors"))
   set termguicolors
+  silent! colorscheme tender
+  let g:airline_theme='tenderplus'
 endif
 
-silent! colorscheme tender
-let g:airline_theme='tenderplus'
+if &term == "screen"
+  set t_Co=256
+  if (has("termguicolors"))
+    set notermguicolors
+  endif
+endif
 
 " let g:airline_powerline_fonts = 1
 
