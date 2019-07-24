@@ -12,6 +12,7 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
  && HISTCONTROL=ignoreboth \
  && HISTTIMEFORMAT='%FT%T%z ' \
  && HISTIGNORE='ls*:exit*:history*:cd\ -:cd:cd\ \.\.' \
+ && echo 'export TZ="Asia/Tokyo"' >> ${HOME}/.bashrc \
  && echo 'stty stop undef' >> ${HOME}/.bashrc \
  && echo 'alias vi="vim"' >> ${HOME}/.bashrc \
  && echo 'alias tmux="tmux -2"' >> ${HOME}/.bashrc \

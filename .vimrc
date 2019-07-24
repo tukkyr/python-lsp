@@ -48,7 +48,9 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#clock#auto = 1
 
-hi! Normal ctermbg=NONE
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+hi! LineNr ctermbg=NONE guibg=NONE
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
