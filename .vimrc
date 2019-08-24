@@ -118,7 +118,7 @@ autocmd BufNewFile,BufRead *.md setlocal expandtab tabstop=2 shiftwidth=2
 
 let g:lsp_diagnostics_enabled = 0
 
-let g:flake8_ignore='E501'
-
 let g:test#python#runner = 'pytest'
 " let g:test#strategy = 'dispatch'
+
+autocmd BufWritePost *.py call flake8#Flake8()

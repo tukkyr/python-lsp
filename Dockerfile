@@ -1,7 +1,8 @@
-FROM python:3.7.4-buster
+FROM python:3-buster
 
 COPY .vimrc /root
 COPY .tmux.conf /root
+COPY .config /root
 
 RUN apt-get update && apt-get install -y vim jq ssh-client tmux && rm -rf /var/lib/apt/lists/*
 
@@ -26,9 +27,8 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
 RUN curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
  && vim -c PlugInstall -c q -c q
 
-RUN pip --no-cache-dir install python-language-server pytest flake8 flake8-mypy mypy
+# RUN pip --no-cache-dir install python-language-server pytest flake8 flake8-mypy mypy
 
 WORKDIR /app
 
-CMD ["/bin/bash"]
-
+CMD ["sleep", "infinity"]
