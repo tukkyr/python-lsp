@@ -2,7 +2,7 @@ FROM python:3-buster
 
 COPY .vimrc /root
 COPY .tmux.conf /root
-COPY .config /root
+COPY .config /root/.config
 
 RUN apt-get update && apt-get install -y vim jq ssh-client tmux && rm -rf /var/lib/apt/lists/*
 
@@ -30,5 +30,7 @@ RUN curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubuse
 # RUN pip --no-cache-dir install python-language-server pytest flake8 flake8-mypy mypy
 
 WORKDIR /app
+
+COPY dev-requirements.txt /root
 
 CMD ["sleep", "infinity"]

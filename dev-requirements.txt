@@ -1,0 +1,6 @@
+python-language-server
+pytest
+pytest-benchmark
+flake8
+mypy
+flake8-mypy
