@@ -21,6 +21,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nvie/vim-flake8'
 Plug 'janko/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'cohama/lexima.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -113,6 +114,7 @@ autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
+autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.md setlocal expandtab tabstop=2 shiftwidth=2
 
@@ -122,3 +124,6 @@ let g:test#python#runner = 'pytest'
 " let g:test#strategy = 'dispatch'
 
 autocmd BufWritePost *.py call flake8#Flake8()
+
+hi clear SpellBad
+hi SpellBad cterm=underline
